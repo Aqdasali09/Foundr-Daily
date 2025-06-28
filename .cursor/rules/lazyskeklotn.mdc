@@ -1,0 +1,44 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+From now on, follow these UI design rules for all components:
+
+1. **Styling:**
+   - Use Tailwind CSS utility classes
+   - Font: Inter
+   - Color Scheme:
+     - Primary: #FF6B00 (Flame Orange)
+     - Accent: #009FFD (Sky Blue)
+     - Background: #F4F4F4
+     - Text: #2D2D2D
+
+2. **Layout:**
+   - Prioritize mobile-first, responsive layouts
+   - Rounded corners: `rounded-2xl`
+   - Use clean spacing (`p-4`, `gap-4`, `space-y-4`, etc.)
+
+3. **UX Enhancements:**
+   - Always include **lazy loading** for images and data-heavy components
+   - Implement **infinite scroll** for feed-style components
+   - Use **skeleton loaders** while data is loading (not spinners)
+
+4. **Components:**
+   - Reusable UI components should be placed in `src/components`
+   - Always extract stateful logic into custom hooks where needed (e.g., useFeed.ts)
+
+5. **Interactivity:**
+   - Use optimistic UI updates when liking, commenting, or posting
+   - Smooth transitions on hover/focus using `transition-all` and `duration-300`
+
+6. **Accessibility:**
+   - Use semantic HTML (e.g., `button`, `section`, `article`)
+   - Ensure text contrast meets accessibility standards
+
+7. **Code:**
+   - Use TypeScript types/interfaces for all props and data structures
+   - Keep components small and readable
+
+
+These rules apply across all pages: dashboard, feed, profile, leaderboard, and calendar.

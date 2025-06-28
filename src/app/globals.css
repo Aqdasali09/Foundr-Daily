@@ -3,6 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* FoundrDaily Color Palette */
+  --sky-blue: #3b82f6;
+  --sky-blue-light: #60a5fa;
+  --flame-orange: #f97316;
+  --flame-orange-light: #fb923c;
+  
+  /* Sidebar Colors */
+  --primary-orange: #FF6B00;
+  --primary-blue: #009FFD;
+  --light-gray: #F4F4F4;
+  --dark-gray: #2D2D2D;
+  --border-gray: #e1e5e9;
 }
 
 @theme inline {
@@ -10,6 +23,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Custom colors */
+  --color-sky-blue: var(--sky-blue);
+  --color-sky-blue-light: var(--sky-blue-light);
+  --color-flame-orange: var(--flame-orange);
+  --color-flame-orange-light: var(--flame-orange-light);
+  
+  /* Sidebar colors */
+  --color-primary-orange: var(--primary-orange);
+  --color-primary-blue: var(--primary-blue);
+  --color-light-gray: var(--light-gray);
+  --color-dark-gray: var(--dark-gray);
+  --color-border-gray: var(--border-gray);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +49,80 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom utility classes */
+.from-sky-blue {
+  --tw-gradient-from: var(--sky-blue);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(59, 130, 246, 0));
+}
+
+.to-sky-blue-light {
+  --tw-gradient-to: var(--sky-blue-light);
+}
+
+.from-flame-orange {
+  --tw-gradient-from: var(--flame-orange);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(249, 115, 22, 0));
+}
+
+.to-flame-orange-light {
+  --tw-gradient-to: var(--flame-orange-light);
+}
+
+.text-sky-blue {
+  color: var(--sky-blue);
+}
+
+.text-flame-orange {
+  color: var(--flame-orange);
+}
+
+/* Sidebar specific classes */
+.bg-primary-orange {
+  background-color: var(--primary-orange);
+}
+
+.bg-primary-blue {
+  background-color: var(--primary-blue);
+}
+
+.bg-light-gray {
+  background-color: var(--light-gray);
+}
+
+.text-primary-orange {
+  color: var(--primary-orange);
+}
+
+.text-primary-blue {
+  color: var(--primary-blue);
+}
+
+.text-dark-gray {
+  color: var(--dark-gray);
+}
+
+.border-border-gray {
+  border-color: var(--border-gray);
+}
+
+.shadow-linkedin {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.shadow-profile {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bg-cover-gradient {
+  background: linear-gradient(135deg, #FF6B00 0%, #009FFD 100%);
+}
+
+.bg-profile-gradient {
+  background: linear-gradient(135deg, #FF6B00, #FF8B33);
+}
+
+.bg-project-gradient {
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(0, 159, 253, 0.1));
 }
