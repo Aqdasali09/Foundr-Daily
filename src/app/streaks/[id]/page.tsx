@@ -7,6 +7,7 @@ import { projectService } from '../../../lib/services/projectService';
 import { Streak, StreakLog, Project } from '../../../types/project';
 import Link from 'next/link';
 import { UserIcon } from '../../../lib/utils/icons';
+import { streakService } from '@/lib/services/streakService';
 
 export default function StreakDetailPage() {
   const { id } = useParams();
@@ -30,7 +31,7 @@ export default function StreakDetailPage() {
 
   const loadStreakData = async () => {
     try {
-      const streakData = await projectService.getStreak(id as string);
+      const streakData = await streakService.getStreak(id as string);
       if (!streakData) {
         router.push('/projects');
         return;
@@ -38,7 +39,7 @@ export default function StreakDetailPage() {
 
       const [projectData, logsData] = await Promise.all([
         projectService.getProject(streakData.project_id),
-        projectService.getStreakLogs(id as string),
+        streakService.getStreakLogs(id as string),
       ]);
 
       setStreak(streakData);
@@ -56,7 +57,7 @@ export default function StreakDetailPage() {
     e.preventDefault();
     
     try {
-      await projectService.logStreak(id as string, logForm.date, logForm.notes || undefined);
+      await streakService.logStreak(id as string, logForm.date, logForm.notes || undefined);
       setLogForm({ date: new Date().toISOString().split('T')[0], notes: '' });
       setShowLogModal(false);
       loadStreakData();
@@ -73,7 +74,7 @@ export default function StreakDetailPage() {
   const handleUnlogStreak = async (date: string) => {
     if (confirm('Are you sure you want to remove this log?')) {
       try {
-        await projectService.unlogStreak(id as string, date);
+        await streakService.unlogStreak(id as string, date);
         loadStreakData();
       } catch (error) {
         console.error('Error removing log:', error);
